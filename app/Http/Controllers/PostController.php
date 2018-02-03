@@ -30,6 +30,7 @@ class PostController extends Controller
 
         $details['created_by'] = Auth::user()->id;
         $details['updated_by'] = Auth::user()->id;
+        
         if (Post::create($details)) {
             return redirect()->route('home');
         } else {
