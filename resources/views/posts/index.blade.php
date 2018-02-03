@@ -18,8 +18,8 @@
                         <div>
                             {{ $post->description }}
                         </div>
-                        <div>{{ date( 'M d, Y H:i:s', strtotime( $post->created_at ) ) }}</div>
-                        @if (Auth::check() && Auth::user()->id == $post->created_by)
+                        <div>By - {{ $post->user->name }} at {{ date( 'M d, Y H:i:s', strtotime( $post->created_at ) ) }}</div>
+                        @if (Auth::check() && (Auth::user()->role == ROLE_ADMIN || Auth::user()->id == $post->created_by ) )
                             <div>
                                 <a href="/posts/edit/{{ $post->id }}">Edit</a>
                             </div>

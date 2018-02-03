@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
     public function isAdmin() {
         $this->role == ROLE_ADMIN? true : false;
     }

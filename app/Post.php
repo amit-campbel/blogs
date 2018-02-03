@@ -13,4 +13,9 @@ class Post extends Model
     protected $fillable = [
         'title', 'description', 'created_by', 'updated_by'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
 }

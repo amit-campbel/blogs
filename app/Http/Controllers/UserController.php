@@ -24,6 +24,12 @@ class UserController extends Controller
         return view('login');
     }
 
+    public function logout() {
+        Auth::logout();
+
+        return redirect()->route('home');
+    }
+
     public function register(Request $request)
     {
         if ($request->isMethod('post')) {

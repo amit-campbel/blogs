@@ -62,11 +62,7 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        if (Auth::user()->isAdmin()) {
-            $posts = Post::paginate(20);
-        } else {
-            $posts = Post::where('created_by', Auth::user()->id)->paginate(20);
-        }
+        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(20);
 
         return view('posts.index', [
             'posts' => $posts

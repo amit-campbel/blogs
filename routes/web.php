@@ -16,6 +16,7 @@ Route::get('/home', 'PostController@index')->name('home');
 
 Route::get('/login', 'UserController@login');
 Route::post('/login', 'UserController@login');
+Route::post('/logout', 'UserController@logout')->name('logout');
 Route::get('/register', 'UserController@register');
 Route::post('/register', 'UserController@register');
 
